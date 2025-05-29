@@ -1,5 +1,6 @@
 import type { IResults } from "../types/IResults";
 import ContentAnalysis from "./ContentAnalysis";
+import HeadingStructure from "./HeadingStructure";
 import ImageAnalysis from "./ImageAnalysis";
 import SEOAnalysisResult from "./SEOAnalysisResult";
 import SeoInfo from "./SeoInfo";
@@ -31,6 +32,7 @@ const Results = ({ results }: { results: IResults }) => {
                 <ContentAnalysis content={results.content} />
             </div>
             <TechnicalSEO technicalSEO={results.technicalSEO} />
+            <HeadingStructure headingStructure={results.headingStructure} />
         </div>
     );
 };

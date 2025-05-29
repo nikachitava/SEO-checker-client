@@ -4,7 +4,7 @@ import type { IHeadingStructure } from "../types/IResults";
 const HeadingStructure = ({
     headingStructure,
 }: {
-    headingStructure: IHeadingStructure;
+    headingStructure: IHeadingStructure[];
 }) => {
     return (
         <div className="bg-white rounded-xl shadow-lg p-6">
@@ -25,29 +25,6 @@ const HeadingStructure = ({
                                     {heading.count}
                                 </span>
                             </div>
-                            {heading.tags.length > 0 ? (
-                                <div className="space-y-2">
-                                    {heading.tags
-                                        .slice(0, 3)
-                                        .map((tag, tagIndex) => (
-                                            <div
-                                                key={tagIndex}
-                                                className="text-sm bg-gray-50 p-2 rounded truncate"
-                                            >
-                                                {tag}
-                                            </div>
-                                        ))}
-                                    {heading.tags.length > 3 && (
-                                        <div className="text-xs text-gray-500">
-                                            +{heading.tags.length - 3} more
-                                        </div>
-                                    )}
-                                </div>
-                            ) : (
-                                <div className="text-sm text-gray-400 italic">
-                                    No H{level} tags found
-                                </div>
-                            )}
                         </div>
                     );
                 })}
