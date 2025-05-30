@@ -9,6 +9,8 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    const BASE_URL = import.meta.env.VITE_BASE_URL;
+
     const checkSEO = async () => {
         if (!url) return;
 
@@ -18,9 +20,7 @@ const Home = () => {
 
         try {
             const response = await fetch(
-                `http://localhost:3000/seo-checker?url=${encodeURIComponent(
-                    url
-                )}`
+                `${BASE_URL}/seo-checker?url=${encodeURIComponent(url)}`
             );
 
             if (!response.ok) {
