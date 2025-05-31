@@ -2,6 +2,8 @@ import type { IResults } from "../types/IResults";
 import ContentAnalysis from "./ContentAnalysis";
 import HeadingStructure from "./HeadingStructure";
 import ImageAnalysis from "./ImageAnalysis";
+import LinkAnalysis from "./LinkAnalysis";
+import PageSpeed from "./PageSpeed";
 import SEOAnalysisResult from "./SEOAnalysisResult";
 import SeoInfo from "./SeoInfo";
 import Suggestions from "./Suggestions";
@@ -25,6 +27,7 @@ const Results = ({ results }: { results: IResults }) => {
                 basicSEO={results.basicSEO}
                 scoreBreakdown={results.scoreBreakdown}
             />
+            <PageSpeed pageSpeed={results.pageSpeed} />
 
             <div className="grid lg:grid-cols-2 gap-6">
                 <ImageAnalysis images={results.images} />
@@ -32,6 +35,7 @@ const Results = ({ results }: { results: IResults }) => {
                 <ContentAnalysis content={results.content} />
             </div>
             <TechnicalSEO technicalSEO={results.technicalSEO} />
+            <LinkAnalysis linkAnalysis={results.linkAnalysis} />
             <HeadingStructure headingStructure={results.headingStructure} />
         </div>
     );
